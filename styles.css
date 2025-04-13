@@ -391,6 +391,13 @@ input, button
 }
 
 }
+@media screen and (max-width: 480px) {
+    .order
+    {
+        display: block;
+    }
+}
+
 
 @media screen and (max-width: 640px) and (min-width: 460px) {
     .drink-category.active 

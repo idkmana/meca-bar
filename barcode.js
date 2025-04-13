@@ -118,6 +118,8 @@ function placeOrder() {
   selectedDrinks.clear();
   document.querySelectorAll('.drink-option').forEach(el => el.classList.remove('selected'));
   document.getElementById('yourOrders').innerHTML = '';
+  document.getElementById('emptyCartMessage').innerText = 'Your cart is empty';
+  document.getElementById('cartTotal').innerText = `$0`;
   renderOrders(table);
 }
 
@@ -126,34 +128,38 @@ function renderOrders(currentTable = null) {
   const barOrders = document.getElementById('barOrders');
   barOrders.innerHTML = '';
 
+
   const orders = JSON.parse(localStorage.getItem('orders') || '[]');
   const history = JSON.parse(localStorage.getItem('orderHistory') || '[]');
 
-  orders.forEach(order => {
-    if (order.table === currentTable) {
-      const orderDiv = document.createElement('div');
-      orderDiv.className = 'order';
-      orderDiv.innerHTML = `
-        <strong>Drink:</strong> ${order.drink} ($${order.price})<br>
-        <strong>Table:</strong> ${order.table}<br>
-        <strong>Status:</strong> <span class="progress">${order.status}</span><br>
-        <strong>Estimated Wait:</strong> ${order.waitTime}
-      `;
-      orderHistoryEl.appendChild(orderDiv);
-    }
-  });
+//   orders.forEach(order => {
+//     if (order.table === currentTable) {
+//       const orderDiv = document.createElement('div');
+//       orderDiv.className = 'order';
+//       orderDiv.innerHTML = `
+//         <strong>Drink:</strong> ${order.drink} ($${order.price})<br>
+//         <strong>Table:</strong> ${order.table}<br>
+//         <strong>Status:</strong> <span class="progress">${order.status}</span><br>
+//         <strong>Estimated Wait:</strong> ${order.waitTime}
+//       `;
+//       orderHistoryEl.appendChild(orderDiv);
+//     }
+//   });
 
-  history.forEach(order => {
-    if (order.table === currentTable) {
-      const histDiv = document.createElement('div');
-      histDiv.className = 'order';
-      histDiv.innerHTML = `
-        <strong>Drink:</strong> ${order.drink} ($${order.price})<br>
-        <strong>Status:</strong> ${order.status} @ ${order.time}
-      `;
-      orderHistoryEl.appendChild(histDiv);
-    }
-  });
+
+orderHistoryEl.innerHTML = ''; 
+
+history.forEach(order => {
+  if (order.table === currentTable) {
+    const histDiv = document.createElement('div');
+    histDiv.className = 'order';
+    histDiv.innerHTML = `
+      <strong>Drink:</strong> ${order.drink} ($${order.price})<br>
+      <strong>Status:</strong> ${order.status} ${order.time}
+    `;
+    orderHistoryEl.appendChild(histDiv);
+  }
+});
 
   if (localStorage.getItem('isBartender') === 'true') {
     orders.forEach(order => {
@@ -188,8 +194,9 @@ function bartenderLogin() {
 }
 
 function orderHistoryOpen() {
+    const table = document.getElementById('table').value;
     document.getElementById('orderSection').style.display = 'block';
-    renderOrders();
+    renderOrders(table);
   }
   
 
@@ -207,7 +214,7 @@ function closeOrdertab()
 //   document.getElementById('barSection').style.display = 'block';
 // }
 
-//  document.addEventListener('DOMContentLoaded', openOrder);
+ //document.addEventListener('DOMContentLoaded', openOrder);
 
 function openOrder()
 {
@@ -221,4 +228,6 @@ function openOrder()
     document.getElementById('card').style.display = 'none';
 
     document.getElementById('bodyGen').classList.remove('login-type');
+
+    // renderOrders(2);
 }
