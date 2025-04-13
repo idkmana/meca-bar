@@ -1,0 +1,402 @@
+body 
+{ 
+    font-family: 'Poppins', sans-serif;
+    margin: 0; 
+    padding: 0; 
+    display: flex; 
+    height: 100vh; 
+    background-color: #1a1a2e;
+}
+
+.card {
+    background-color: #1f2937;
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .card h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #d1d5db;
+  }
+  
+  .card p {
+    color: #d1d5db;
+    margin-bottom: 24px;
+  }
+  
+  .qrcode {
+    width: 150px;
+    height: 150px;
+    background-color: white;
+    margin: 0 auto 24px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .input-group {
+    margin-bottom: 24px;
+    text-align: left;
+  }
+  
+  .input-group label {
+    display: block;
+    font-size: 14px;
+    color: #d1d5db;
+    margin-bottom: 8px;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #4b5563;
+    background-color: #374151;
+    color: white;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  
+  .input-group input:focus {
+    outline: none;
+    border-color: #e94560;
+    box-shadow: 0 0 0 2px rgba(233, 69, 96, 0.5);
+  }
+  
+  .card button {
+    width: 100%;
+    padding: 12px;
+    background-color: #e94560;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .card button:hover {
+    background-color: #d43650;
+  }
+
+.container 
+{ 
+    flex: 1; 
+    padding: 20px; 
+    overflow-y: auto; 
+}
+
+.bar-section 
+{ 
+    background: #1a1a2e; 
+    color: white; 
+    padding: 20px; 
+    overflow-y: auto; 
+    display: none; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    height: 100vh;
+}
+.order-section 
+{ 
+    background: #1a1a2e; 
+    color: white; 
+    padding: 20px; 
+    overflow-y: auto; 
+    display: none; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    height: 100vh;
+}
+
+.btn-close
+{
+    width: fit-content;
+    background-color: #d43650;
+    color: white;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+    padding: 10px;
+}
+
+.btn-mark-done
+{
+    background-color: #36d443;
+    color: white;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+    padding: 10px;
+}
+
+h2 
+{ 
+    margin: 0; 
+}
+
+.order-form 
+{ 
+    margin-bottom: 20px; 
+}
+
+.login-type
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+}
+
+.order-form-bottom
+{
+    display: none;
+}
+
+.menu-header {
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .menu-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .table-display-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .table-label {
+    color: #d1d5db; 
+    font-size: 16px;
+  }
+  
+  .table-number {
+    font-size: 20px;
+    font-weight: bold;
+    color: #e94560; 
+  }
+  
+input, button 
+{ 
+    display: block; 
+    margin-top: 10px; 
+    padding: 10px 0px; 
+    width: 100%;
+}
+
+.tabs 
+{ 
+    display: flex; 
+    gap: 10px; 
+    flex-wrap: wrap; 
+    margin-bottom: 20px; 
+    border-bottom: 1px solid grey;
+}
+
+.tab 
+{ 
+    padding: 10px; 
+    background: transparent; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-weight: 600;
+    color: #e6e6e6;
+}
+
+.tab.active 
+{ 
+    color: rgb(255, 0, 64);
+    border-bottom: 2px solid rgb(255, 0, 64);
+    border-radius: 0; 
+}
+
+.drink-category 
+{ 
+    display: none; 
+}
+
+.drink-category.active 
+{ 
+    display: grid;
+    grid-auto-flow: column;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-flow: row;
+}
+
+.drink-option 
+{ 
+    color: white;
+    background-color: rgba(26, 32, 53, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px; 
+    cursor: pointer; 
+    border-radius: 5px; 
+    transition: 0.25s;
+}
+
+.drink-option:hover 
+{ 
+    transform: translateY(-5px);
+    
+ }
+
+.drink-option.selected 
+{ 
+    border-color: green; 
+}
+
+.order 
+{ 
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding: 10px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.progress 
+{ 
+    font-size: 0.9em; 
+    color: green; 
+}
+
+.bar-order 
+{ 
+    background: #1f2937; 
+    padding: 10px; 
+    margin-bottom: 10px; 
+    border-radius: 5px; 
+}
+
+/* Order summary container */
+.order-summary {
+
+    margin-top: 20px;
+    border-radius: 8px;
+    background-color: #1f2937; /* Dark gray */
+    padding: 16px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Container to center the content */
+  .order-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Header section with title and cart total */
+  .order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .order-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .order-total {
+    font-size: 20px;
+    font-weight: bold;
+    color: #e94560;
+  }
+
+  .cart-items {
+    max-height: 160px;
+    overflow-y: auto;
+    margin-bottom: 16px;
+  }
+
+  .empty-cart-message {
+    color: #9ca3af; 
+    text-align: center;
+    padding: 8px 0;
+  }
+  
+  .order-actions {
+    display: flex;
+    gap: 16px;
+  }
+  
+  .order-history-btn,
+  .place-order-btn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: medium;
+    cursor: pointer;
+  }
+  
+  .order-history-btn {
+    background-color: #4b5563; 
+    color: white;
+    border: none;
+  }
+  
+  .place-order-btn {
+    background-color: #e94560; 
+    color: white;
+    border: none;
+  }
+  
+  .place-order-btn[disabled] {
+    background-color: #9ca3af; 
+    cursor: not-allowed;
+  }
+  
+
+.login-btn 
+{ 
+    background: darkblue; 
+    color: white; 
+    margin-bottom: 10px; 
+}
+
+#orderHistory 
+{ 
+    margin-top: 40px; 
+}
+
+@media screen and (max-width: 460px) {
+    .drink-category.active 
+{ 
+    gap: 10px;
+    grid-template-columns: 1fr ;
+}
+
+}
+
+@media screen and (max-width: 640px) and (min-width: 460px) {
+    .drink-category.active 
+{ 
+    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+}
+
+}
